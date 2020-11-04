@@ -1,0 +1,503 @@
+@charset "utf-8";
+@media screen and (max-width: 640px) {
+
+html,
+body {
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #000;
+	font-size: 14px;
+}
+
+
+/*scrollbar redesign*/
+::-webkit-scrollbar {
+	width: 15px;
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 3px #ccc;
+}
+::-webkit-scrollbar-thumb {
+	background: #88A414;
+	border-radius: 10px;
+}
+::selection {
+	background: #88A414;
+	color: #fff;
+}
+.swiper-button-prev:after,
+.swiper-container-rtl .swiper-button-next:after {
+	content: 'prev';
+	color: #727272;
+}
+.swiper-button-next:after,
+.swiper-container-rtl .swiper-button-prev:after {
+	content: 'next';
+	color: #222;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	font-family: swiper-icons;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: none !important;
+	letter-spacing: 0;
+	text-transform: none;
+	font-variant: initial;
+	line-height: 1;
+}
+
+
+
+/*top*/
+.top {
+	width: 375px;
+	height: 44px;
+}
+.top .inner {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+.top .logo_area {
+/*	position: absolute;
+	top: 0;
+	left: 0;*/
+	width: 50px;
+	height: 40px;
+}
+.top .logo_area a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.top .menu {
+	position: absolute;
+	top: 23px;
+	right: 25px;
+}
+.top .menu li {
+	float: left;
+	padding: 0 10px;
+	font-size: 13px;
+	color: #636363;
+}
+.top .menu li a {
+	color: #636363;
+}
+.top .menu .language > a:after {
+	content: url(../img/icon/arrow_b.png);
+	margin-left: 5px;
+}
+.top .menu .language_box {
+	display: none;
+	position: absolute;
+	top: 25px;
+	right: 10px;
+	width: 80px;
+	border: 1px #e0e0e0 solid;
+	background: #fff;
+	text-align: center;
+	z-index: 999;
+}
+.top .menu .language_box a {
+	display: block;
+	padding: 4px 10px;
+}
+.top .menu .language_box a:hover {
+	background: #e0e0e0;
+}
+
+
+/*header*/
+header {
+	max-width: 100%;
+	height: 35px;
+	background: #67625d;
+}
+header .inner {
+/*	position: relative;*/
+	width: 1400px;
+	margin: 0 auto;
+	background: #67625d;
+	border-bottom: 1px solid #67625d;
+	transition: all 0.3s;
+}
+.gnb {
+/*	position: relative;*/
+	height: 65px;
+	color: #fff;
+	font-size: 15px;
+	z-index: 100;
+}
+
+header .gnb:after {
+	content: '';
+	display: none;
+	top: 100%;
+	width: 150%;
+	height: 0;
+	background: #ffffff;
+	transition: height 0.3s;
+}
+
+header.on .gnb:after {
+	top: calc(100% + 1px);
+	height: 350px;
+	border-bottom: 1px solid #ddd;
+}
+.gnb .container {
+	max-width: 780px;
+	height: 65px;
+	margin: 0 auto;
+}
+
+.gnb .container li {
+	position: relative;
+	float: left;
+	text-align: center;
+}
+.gnb .container > li + li {
+	margin-left: 60px;
+}
+.gnb .container > li:last-child {
+	margin-left: 20px;
+}
+.gnb .container > li > a {
+	position: relative;
+	display: inline-block;
+	line-height: 65px;
+	padding: 0 20px;
+	transition: all 0.3s;
+}
+.gnb .container > li.on > a,
+.gnb .container > li:hover {
+	color: #daf100;
+}
+.gnb .container > li:hover ul li a {
+	color: #67625d;
+}
+.gnb .container > li > a:after {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 2px;
+	background: #daf100;
+	display: block;
+	transition: all 0.3s;
+	opacity: 0;
+	content: '';
+}
+.gnb .container > li:hover a:after {
+	left: 50%;
+	width: 30px;
+	height: 2px;
+	opacity: 1;
+}
+.gnb .sub-gnb {
+	display: none;
+}
+.gnb .sub-gnb li {
+	display: none;
+}
+.gnb .sub-gnb li a {
+	display: block;
+	line-height: 38px;
+	font-size: 14px;
+	color: #aaa;
+	letter-spacing: -0.5px;
+}
+
+header .gnb.on h1 {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0, -50%);
+	width: 90px;
+}
+
+header .gnb.on h1 img {
+	width: 100%;
+}
+
+header .gnb.on {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+header .gnb.on .gnb {
+	color: #464340;
+}
+
+header .gnb.on .gnb-r a:hover i,
+header .gnb.on .gnb > ul > li:hover {
+	color: #638013;
+}
+
+header .gnb.on .container li > a:after {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 2px;
+	background: #daf100;
+	display: block;
+	transition: all 0.3s;
+	opacity: 0;
+	content: '';
+}
+header .gnb.on .gnb > ul > li:hover a:after {
+	left: 50%;
+	width: 30px;
+	height: 2px;
+	opacity: 1;
+}
+header .gnb .inner {
+	position: relative;
+	height: 65px;
+	width: 1400px;
+	margin: 0 auto;
+	overflow: visible;
+}
+header .ico {
+	position: absolute;
+	top: 0;
+	right: 180px;
+}
+header .ico li {
+	line-height: 63px;
+	padding: 0 20px;
+	color: #fff;
+}
+header .ico li a {
+	display: block;
+}
+header .more {
+	position: relative;
+	display: block;
+	float: left;
+	transition: all 0.3s;
+}
+header .ico li {
+	float: left;
+}
+header .ico li:hover {
+	color: #88A414;
+}
+header .ico .more .sub-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	width: 160px;
+	border: 1px #e0e0e0 solid;
+	background: #fff;
+	z-index: 9999;
+}
+header .ico .more .sub-menu a {
+	display: block;
+	margin-left: 20px;
+	font-size: 14px;
+	color: #464646;
+}
+header .ico .more .sub-menu a:last-child {
+	display: none;
+}
+
+header .ico .more:hover .sub-menu {
+	display: block;
+}
+
+/*.gnb .container li:nth-child(3) .sub-gnb li a {
+	letter-spacing: -1px;
+}*/
+header .ad-area {
+	display: none;
+}
+header .ad-area p {
+	display: none;
+}
+header .ad-area img {
+	display: none;
+}
+header.on .ad-area {
+	display: none;
+}
+
+	
+/*main*/
+.main {
+	position: relative;
+	width: 375px;
+	overflow: hidden;
+	height: 297px;
+}
+.main .swiper-slide {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main .swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%:
+}
+.main .swiper-slide .tit {
+	display: block;
+	position: absolute;
+	top: 27%;
+	left: 25%;
+	width: 900px;
+}
+.main .swiper-slide .tit h1 {
+	font-size: 54px;
+	margin-bottom: 15px;
+	font-family: 'Nanum Myeongjo', serif;
+}
+.main .swiper-slide .tit p {
+	font-size: 27px;
+	margin-bottom: 20px;
+	color: #666;
+}
+.main .swiper-slide .tit span {
+	width: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	margin-top: 60px;
+	font-size: 20px;
+	text-align: center;
+}
+.main .swiper-slide .tit span:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 50px;
+	left: 47%;
+	width: 35px;
+	height: 2px;
+	background: #888;
+	margin: 20px 0;
+}
+.main .swiper-slide:nth-child(4) .tit *,
+.main .swiper-slide:nth-child(5) .tit * {
+	color: #fff;
+}
+
+.main .pagination_area {
+	overflow: hidden;
+	position: absolute;
+	bottom: 0; left: 25%;
+	width: 980px;
+	height: 50px;
+	z-index: 999;
+}
+.main .pagination_area .pag_inner {
+	display: none;
+	width: 1400px;
+	margin: 0 auto;
+}
+.main .pagination_area li {
+	position: relative;
+	float: left;
+	width: 15%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	/*background: rgba(158,158,158, .5);*/
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+}
+.main .pagination_area a {
+	display: block;
+}
+.main .pagination_area .play_button {
+	position: absolute;
+	top: 0%; right: 0;
+	background: rgba(0,0,0,0.5);
+	width: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+.main .pagination_area .play_button .play_play {
+	display: none;
+}
+.main .pagination_area .play_button .pause .play_play {
+	display: inline-block;
+}
+.main .pagination_area .play_button .pause .play_pause {
+	display: none;
+}
+
+.main .pagination_area .pag_inner li div {
+	display: block;
+	width: 0px;
+	height: 50px;
+	cursor: pointer;
+	background: #88a414;
+}
+
+.main .pagination_area .pag_inner .active div {
+	width: 210px;
+	transition: width 3s ease-in;
+}
+
+.main .pagination_area .pag_inner .stop div {
+	width: 210px;
+	transition: width 3s ease-in;
+}
+
+.main .pagination_area .pag_inner li a {;
+	position: absolute;
+	top: 0px;
+	width: 210px;
+	height: 50px;
+	cursor: pointer;
+}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+.sub_banner_area,
+.weekly,
+.weekly_best,
+.md_pick,
+.tea_shop,	
+.event,	
+.banner,	
+.choice_area,	
+.best,	
+.tabs,	
+.panels,	
+.all_more,	
+.follow,
+.notice,
+footer {display: none;}
+	
+}
